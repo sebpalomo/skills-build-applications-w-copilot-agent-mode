@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from octofit_tracker.test_data import test_data
+from octofit_tracker.test_data import data as test_data
 from octofit_tracker.models import User, Team, Activity, Leaderboard, Workout
 
 class Command(BaseCommand):
@@ -19,7 +19,10 @@ class Command(BaseCommand):
 
         # Populate teams
         for team_data in test_data['teams']:
-            Team.objects.create(**team_data)
+            team = Team.objects.create(name=team_data['name'])
+            for user in User.objects.all():
+                team.members.add(user)
+            team.save()
 
         # Populate activities
         for activity_data in test_data['activities']:
