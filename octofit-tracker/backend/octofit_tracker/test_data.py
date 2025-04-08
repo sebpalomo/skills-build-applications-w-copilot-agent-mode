@@ -1,36 +1,28 @@
-# Datos de prueba para poblar la base de datos octofit_db
+from bson import ObjectId
+from datetime import timedelta
 
-test_data = {
-    "users": [
-        {"username": "thundergod", "email": "thundergod@mhigh.edu", "password": "thundergodpassword"},
-        {"username": "metalgeek", "email": "metalgeek@mhigh.edu", "password": "metalgeekpassword"},
-        {"username": "zerocool", "email": "zerocool@mhigh.edu", "password": "zerocoolpassword"},
-        {"username": "crashoverride", "email": "crashoverride@hmhigh.edu", "password": "crashoverridepassword"},
-        {"username": "sleeptoken", "email": "sleeptoken@mhigh.edu", "password": "sleeptokenpassword"},
-    ],
-    "teams": [
-        {"name": "Blue Team", "members": ["thundergod", "metalgeek"]},
-        {"name": "Gold Team", "members": ["zerocool", "crashoverride", "sleeptoken"]},
-    ],
-    "activities": [
-        {"user": "thundergod", "activity_type": "Cycling", "duration": "1:00:00"},
-        {"user": "metalgeek", "activity_type": "Crossfit", "duration": "2:00:00"},
-        {"user": "zerocool", "activity_type": "Running", "duration": "1:30:00"},
-        {"user": "crashoverride", "activity_type": "Strength", "duration": "0:30:00"},
-        {"user": "sleeptoken", "activity_type": "Swimming", "duration": "1:15:00"},
-    ],
-    "leaderboard": [
-        {"user": "thundergod", "score": 100},
-        {"user": "metalgeek", "score": 90},
-        {"user": "zerocool", "score": 95},
-        {"user": "crashoverride", "score": 85},
-        {"user": "sleeptoken", "score": 80},
-    ],
-    "workouts": [
-        {"name": "Cycling Training", "description": "Training for a road cycling event"},
-        {"name": "Crossfit", "description": "Training for a crossfit competition"},
-        {"name": "Running Training", "description": "Training for a marathon"},
-        {"name": "Strength Training", "description": "Training for strength"},
-        {"name": "Swimming Training", "description": "Training for a swimming competition"},
-    ],
-}
+def get_test_data():
+    return {
+        "users": [
+            {"_id": ObjectId(), "name": "Thor", "email": "thor@asgard.com", "age": 1500},
+            {"_id": ObjectId(), "name": "Iron Man", "email": "tony@starkindustries.com", "age": 48},
+            {"_id": ObjectId(), "name": "Hulk", "email": "bruce@banner.com", "age": 49},
+            {"_id": ObjectId(), "name": "Black Widow", "email": "natasha@shield.com", "age": 35},
+            {"_id": ObjectId(), "name": "Captain America", "email": "steve@avengers.com", "age": 105},
+        ],
+        "teams": [
+            {"_id": ObjectId(), "name": "Avengers", "members": []},
+        ],
+        "activities": [
+            {"_id": ObjectId(), "user": None, "type": "Running", "duration": 30 * 60, "calories_burned": 300},
+            {"_id": ObjectId(), "user": None, "type": "Cycling", "duration": 60 * 60, "calories_burned": 600},
+        ],
+        "leaderboard": [
+            {"_id": ObjectId(), "user": None, "score": 100},
+            {"_id": ObjectId(), "user": None, "score": 90},
+        ],
+        "workouts": [
+            {"_id": ObjectId(), "name": "Morning Yoga", "description": "A relaxing yoga session", "duration": 30},
+            {"_id": ObjectId(), "name": "Strength Training", "description": "Building muscle strength", "duration": 45},
+        ],
+    }

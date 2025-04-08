@@ -7,11 +7,11 @@ from .models import User, Team, Activity, Leaderboard, Workout
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
-        'users': 'api/users/',
-        'teams': 'api/teams/',
-        'activities': 'api/activities/',
-        'leaderboard': 'api/leaderboard/',
-        'workouts': 'api/workouts/'
+        'users': '/api/users/',
+        'teams': '/api/teams/',
+        'activities': '/api/activities/',
+        'leaderboard': '/api/leaderboard/',
+        'workouts': '/api/workouts/',
     })
 
 class UserViewSet(viewsets.ModelViewSet):
